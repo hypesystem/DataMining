@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataMining2", "DataMining2\DataMining2.csproj", "{A25436AE-8688-424C-B092-80AE0900D369}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsvParser", "CsvParser\CsvParser.csproj", "{125748FF-CF1E-4989-998A-489498CDEF07}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A25436AE-8688-424C-B092-80AE0900D369}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A25436AE-8688-424C-B092-80AE0900D369}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A25436AE-8688-424C-B092-80AE0900D369}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A25436AE-8688-424C-B092-80AE0900D369}.Release|Any CPU.Build.0 = Release|Any CPU
+		{125748FF-CF1E-4989-998A-489498CDEF07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{125748FF-CF1E-4989-998A-489498CDEF07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{125748FF-CF1E-4989-998A-489498CDEF07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{125748FF-CF1E-4989-998A-489498CDEF07}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
