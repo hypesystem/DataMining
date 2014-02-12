@@ -12,7 +12,7 @@ namespace DataMining2
         public static bool? Parse(string boolstr, params string[] right_answers)
         {
             boolstr = boolstr.ToLower().Trim();
-            bool is_yes = boolstr.Contains("yes");
+            bool is_yes = boolstr.Contains("yes") || boolstr.Contains("yiss") || boolstr.Contains("jup") || boolstr.Contains("yup") || boolstr.Contains("si");
             bool is_no = boolstr.Contains("no");
 
             if (is_yes && !is_no) return true;
