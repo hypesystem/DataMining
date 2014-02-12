@@ -8,17 +8,22 @@ using System.Threading.Tasks;
 
 namespace DataMining2
 {
-    public class NominalSet : IEnumerable<string>
+    public class NominalSet : IEnumerable<KeyValuePair<string,int>>
     {
-        private HashSet<string> storage = new HashSet<string>();
+        private Dictionary<string, int> storage = new Dictionary<string, int>();
 
         public void Add(string nominal)
         {
-            var result = nominal;
-            if (result != "") storage.Add(result);
+            if (nominal != null)
+            {
+                if (storage.ContainsKey(nominal))
+                    storage[nominal]++;
+                else
+                    storage[nominal] = 1;
+            }
         }
 
-        public IEnumerator<string> GetEnumerator()
+        public IEnumerator<KeyValuePair<string, int>> GetEnumerator()
         {
             return storage.GetEnumerator();
         }

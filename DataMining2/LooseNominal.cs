@@ -12,7 +12,7 @@ namespace DataMining2
 
         public static string Parse(string input)
         {
-            Regex matchNonAlphanumeric = new Regex(@"[^a-z0-9]");
+            Regex matchNonAlphanumeric = new Regex(@"[^a-z0-9#\+\.]");
             string result = matchNonAlphanumeric.Replace(input.Trim().ToLower(), "");
             return result == "" ? null : result;
         }

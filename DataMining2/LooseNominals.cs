@@ -14,7 +14,7 @@ namespace DataMining2
         {
             string[] result = { };
 
-            Regex nonAlphanumericSpace = new Regex(@"[^a-zA-Z0-9 ]");
+            Regex nonAlphanumericSpace = new Regex(@"[^a-zA-Z0-9#\+\. ]");
 
             if (nonAlphanumericSpace.Match(str).Success)
             {
@@ -28,7 +28,7 @@ namespace DataMining2
             }
             for (int i = 0; i < result.Length; i++)
             {
-                result[i] = result[i].Trim();
+                result[i] = LooseNominal.Parse(result[i]);
             }
             return result;
         }

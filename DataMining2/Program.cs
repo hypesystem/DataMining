@@ -126,35 +126,35 @@ namespace DataMining2
             }
 
             Console.Write("OS ("+osNominals.Count()+"): ");
-            foreach (string os in osNominals)
+            foreach (KeyValuePair<string,int> os in osNominals)
             {
                 Console.Write(os + "; ");
             }
             Console.WriteLine();
 
             Console.Write("ProgLang (" + progLangNominals.Count() + "): ");
-            foreach (string progLang in progLangNominals)
+            foreach (KeyValuePair<string,int> progLang in progLangNominals)
             {
                 Console.Write(progLang + "; ");
             }
             Console.WriteLine();
 
             Console.Write("Animal (" + animalNominals.Count() + "): ");
-            foreach (string animal in animalNominals)
+            foreach (KeyValuePair<string,int> animal in animalNominals)
             {
                 Console.Write(animal + "; ");
             }
             Console.WriteLine();
 
             Console.Write("Color (" + colorNominals.Count() + "): ");
-            foreach (string color in colorNominals)
+            foreach (KeyValuePair<string,int> color in colorNominals)
             {
                 Console.Write(color + "; ");
             }
             Console.WriteLine();
 
             Console.Write("SQL Server (" + sqlServerNominals.Count() + "): ");
-            foreach (string sqlServer in sqlServerNominals)
+            foreach (KeyValuePair<string,int> sqlServer in sqlServerNominals)
             {
                 Console.Write(sqlServer + "; ");
             }
@@ -165,6 +165,31 @@ namespace DataMining2
             foreach (var tup in content)
             {
                 //Throw away values that do not appear in both data sets
+                CrazyTuple newTup = new CrazyTuple();
+
+                newTup.Put("age", tup.Get<int?>("age"));
+                newTup.Put("prog_skill", tup.Get<int?>("prog_skill"));
+                newTup.Put("yrs_of_uni_study", tup.Get<double?>("yrs_of_uni_study"));
+                newTup.Put("os", tup.Get<string>("os"));
+                newTup.Put("prog_langs", tup.Get<string[]>("prog_langs"));
+                newTup.Put("english_level", tup.Get<int?>("english_level"));
+                newTup.Put("animal", tup.Get<string>("animal"));
+                newTup.Put("more_mountains_in_dk", tup.Get<bool?>("more_mountains_in_dk"));
+                newTup.Put("fed_up_with_winter", tup.Get<bool?>("fed_up_with_winter"));
+                newTup.Put("randomNumber", tup.Get<double?>("randomNumber"));
+                newTup.Put("randomRealNumber", tup.Get<double?>("randomRealNumber"));
+                newTup.Put("randomRealNumber2", tup.Get<double?>("randomRealNumber2"));
+                newTup.Put("food_in_canteen_comment", tup.Get<string>("food_in_canteen_comment"));
+                newTup.Put("favourite_color", tup.Get<string>("favourite_color"));
+                newTup.Put("do_you_know_neural_network", tup.Get<bool?>("do_you_know_neural_network"));
+                newTup.Put("do_you_know_sql", tup.Get<bool?>("do_you_know_sql"));
+                newTup.Put("favourite_sql_server", tup.Get<string>("favourite_sql_server"));
+                newTup.Put("do_you_know_a_priori", tup.Get<bool?>("do_you_know_a_priori"));
+                newTup.Put("sqrt_number", tup.Get<string>("sqrt_number"));
+                newTup.Put("gibberish_comment", tup.Get<string>("gibberish_comment"));
+                newTup.Put("planets_in_solar_system", tup.Get<int?>("planets_in_solar_system"));
+
+                newContent.Add(newTup);
             }
 
             //Replace data
