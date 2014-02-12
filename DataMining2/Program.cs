@@ -41,7 +41,7 @@ namespace DataMining2
                 tup.Put("yrs_of_uni_study", LooseDouble.Parse(r.Data[3]));
                 tup.Put("os", LooseNominal.Parse(r.Data[4]));
                 tup.Put("prog_langs", LooseNominals.Parse(r.Data[5]));
-                tup.Put("english_level", LooseInt.Parse(r.Data[6]));
+                tup.Put("english_level", LooseInt.Parse(r.Data[6], 45, 69));
                 tup.Put("animal", LooseNominal.Parse(r.Data[7]));
                 tup.Put("more_mountains_in_dk", LooseBinary.Parse(r.Data[8]));
                 tup.Put("fed_up_with_winter", LooseBinary.Parse(r.Data[9]));
@@ -80,7 +80,7 @@ namespace DataMining2
                 tup.Put("yrs_of_uni_study", LooseDouble.Parse(r.Data[2]));
                 tup.Put("os", LooseNominal.Parse(r.Data[3]));
                 tup.Put("prog_langs", LooseNominals.Parse(r.Data[4]));
-                tup.Put("english_level", LooseInt.Parse(r.Data[5]));
+                tup.Put("english_level", LooseInt.Parse(r.Data[5], 45, 69));
                 tup.Put("animal", LooseNominal.Parse(r.Data[6]));
                 tup.Put("more_mountains_in_dk", LooseBinary.Parse(r.Data[7]));
                 tup.Put("fed_up_with_winter", LooseBinary.Parse(r.Data[8]));

@@ -10,11 +10,13 @@ namespace DataMining2
     class LooseInt
     {
 
-        public static int? Parse(string intstr)
+        public static int? Parse(string intstr, int min = int.MinValue, int max = int.MaxValue)
         {
             int val;
             if (int.TryParse(intstr.Trim(), out val))
             {
+                if (val < min || val > max)
+                    Console.WriteLine("Warning: Parsing int " + val + " outside of range [" + min + "," + max + "]");
                 return val;
             }
 
@@ -23,6 +25,8 @@ namespace DataMining2
             if(dblval != null) {
                 val = (int)Math.Round((double)dblval);
                 Console.WriteLine("Warning: Approximating int " + val + " from double " + dblval);
+                if (val < min || val > max)
+                    Console.WriteLine("Warning: Parsing int " + val + " outside of range [" + min + "," + max + "]");
                 return val;
             }
 
@@ -40,6 +44,20 @@ namespace DataMining2
 
                 //TODO: Why does this approximate 8 instead of 9 from 8-9?
                 Console.WriteLine("Warning: Approximating int " + val + " from interval " + i1 + "-" + i2);
+                if (val < min || val > max)
+                    Console.WriteLine("Warning: Parsing int " + val + " outside of range [" + min + "," + max + "]");
+                return val;
+            }
+
+            //Handle people putting in strings starting with an integer
+            Regex numberBeforeStringRegex = new Regex(@"([0-9]+)[^0-9]");
+            Match numberBeforeStringMatch = numberBeforeStringRegex.Match(intstr);
+            if (numberBeforeStringMatch.Success)
+            {
+                val = int.Parse(numberBeforeStringMatch.Groups[1].ToString());
+
+                if (val < min || val > max)
+                    Console.WriteLine("Warning: Parsing int " + val + " outside of range [" + min + "," + max + "]");
                 return val;
             }
 
