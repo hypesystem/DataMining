@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace DataMining2
@@ -11,7 +12,9 @@ namespace DataMining2
 
         public static string Parse(string input)
         {
-            return input.ToLower().Trim();
+            Regex matchNonAlphanumeric = new Regex(@"[^a-z0-9]");
+            string result = matchNonAlphanumeric.Replace(input.Trim().ToLower(), "");
+            return result == "" ? null : result;
         }
 
     }

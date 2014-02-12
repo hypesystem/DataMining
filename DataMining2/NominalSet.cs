@@ -14,8 +14,7 @@ namespace DataMining2
 
         public void Add(string nominal)
         {
-            Regex matchNonAlphanumeric = new Regex(@"[^a-z0-9]");
-            string result = matchNonAlphanumeric.Replace(nominal.Trim().ToLower(),"");
+            var result = nominal;
             if (result != "") storage.Add(result);
         }
 
