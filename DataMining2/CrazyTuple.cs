@@ -11,10 +11,8 @@ namespace DataMining2
     /// </summary>
     public class CrazyTuple
     {
-        private Dictionary<string, object> storage = new Dictionary<string,object>();
 
-        public CrazyTuple(params object[] values) {
-        }
+        private Dictionary<string, object> storage = new Dictionary<string,object>();
 
         public void Put(string name, object value)
         {

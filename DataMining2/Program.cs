@@ -21,6 +21,8 @@ namespace DataMining2
             Console.ReadKey();
             CleanData();
             Console.ReadKey();
+            //WriteData();
+            Console.ReadKey();
             //NormalizeData();
             Console.ReadKey();
             //ClassifyData();
@@ -113,8 +115,23 @@ namespace DataMining2
             var animalNominals = new NominalSet();
             var colorNominals = new NominalSet();
             var sqlServerNominals = new NominalSet();
+
+            //Find averages
+            double uniYearsAverage = 0d;
+            double randAverage = 0d;
+            double randRealAverage = 0d;
+            double randReal2Average = 0d;
+
+            int ageAverage = 0;
+            int progSkillAverage = 0;
+            int engLevelAverage = 0;
+            int planetsAverage = 0;
+
             foreach (var tup in content)
             {
+                //TODO: Replace null values with averages; move code dropping certain values here.
+
+                //NOMINALS
                 osNominals.Add(tup.Get<string>("os"));
                 foreach (string progLang in tup.Get<string[]>("prog_langs"))
                 {
@@ -123,6 +140,10 @@ namespace DataMining2
                 animalNominals.Add(tup.Get<string>("animal"));
                 colorNominals.Add(tup.Get<string>("favourite_color"));
                 sqlServerNominals.Add(tup.Get<string>("favourite_sql_server"));
+
+                //DOUBLES
+
+                //INTEGERS
             }
 
             Console.Write("OS ("+osNominals.Count()+"): ");
