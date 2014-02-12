@@ -21,6 +21,7 @@ namespace DataMining2
             }
 
             //Try to parse as double, then round
+            //TODO: This shouldn't write anything out from the LooseDouble... hmm
             double? dblval = LooseDouble.Parse(intstr);
             if(dblval != null) {
                 val = (int)Math.Round((double)dblval);

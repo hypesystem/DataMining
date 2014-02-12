@@ -19,7 +19,7 @@ namespace DataMining2
         {
             ReadAndParseData();
             Console.ReadKey();
-            //CleanData();
+            CleanData();
             Console.ReadKey();
             //NormalizeData();
             Console.ReadKey();
@@ -103,6 +103,72 @@ namespace DataMining2
 
             Console.WriteLine("\n2014 data read.\n");
             Console.ReadKey();
+        }
+
+        public static void CleanData()
+        {
+            //First pass: Make nominals
+            var osNominals = new NominalSet();
+            var progLangNominals = new NominalSet();
+            var animalNominals = new NominalSet();
+            var colorNominals = new NominalSet();
+            var sqlServerNominals = new NominalSet();
+            foreach (var tup in content)
+            {
+                osNominals.Add(tup.Get<string>("os"));
+                foreach (string progLang in tup.Get<string[]>("prog_langs"))
+                {
+                    progLangNominals.Add(progLang);
+                }
+                animalNominals.Add(tup.Get<string>("animal"));
+                colorNominals.Add(tup.Get<string>("favourite_color"));
+                sqlServerNominals.Add(tup.Get<string>("favourite_sql_server"));
+            }
+
+            Console.Write("OS ("+osNominals.Count()+"): ");
+            foreach (string os in osNominals)
+            {
+                Console.Write(os + "; ");
+            }
+            Console.WriteLine();
+
+            Console.Write("ProgLang (" + progLangNominals.Count() + "): ");
+            foreach (string progLang in progLangNominals)
+            {
+                Console.Write(progLang + "; ");
+            }
+            Console.WriteLine();
+
+            Console.Write("Animal (" + animalNominals.Count() + "): ");
+            foreach (string animal in animalNominals)
+            {
+                Console.Write(animal + "; ");
+            }
+            Console.WriteLine();
+
+            Console.Write("Color (" + colorNominals.Count() + "): ");
+            foreach (string color in colorNominals)
+            {
+                Console.Write(color + "; ");
+            }
+            Console.WriteLine();
+
+            Console.Write("SQL Server (" + sqlServerNominals.Count() + "): ");
+            foreach (string sqlServer in sqlServerNominals)
+            {
+                Console.Write(sqlServer + "; ");
+            }
+            Console.WriteLine();
+
+            //Second pass: Make new tuples
+            List<CrazyTuple> newContent = new List<CrazyTuple>();
+            foreach (var tup in content)
+            {
+                //Throw away values that do not appear in both data sets
+            }
+
+            //Replace data
+            content = newContent;
         }
     }
 }
