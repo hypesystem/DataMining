@@ -9,7 +9,8 @@ namespace DataMining2
 {
     class Program
     {
-        const string INPUT_PATH = @"C:\Users\hypesystem\Dropbox\Public\programmering\DataMining2\data.csv";
+        const string INPUT_PATH_2013 = @"C:\Users\hypesystem\Dropbox\Public\programmering\DataMining2\data-2013.csv";
+        const string INPUT_PATH_2014 = @"C:\Users\hypesystem\Dropbox\Public\programmering\DataMining2\data-2014.csv";
         const string OUTPUT_PATH = @"C:\Users\hypesystem\Dropbox\Public\programmering\DataMining2\clean.csv";
 
         private static List<CrazyTuple> content = new List<CrazyTuple>();
@@ -28,8 +29,8 @@ namespace DataMining2
 
         static void ReadAndParseData()
         {
-            CsvTable tbl = CsvTable.Parse(INPUT_PATH);
-            foreach (var r in tbl.Rows)
+            CsvTable tbl2013 = CsvTable.Parse(INPUT_PATH_2013);
+            foreach (var r in tbl2013.Rows)
             {
                 CrazyTuple tup = new CrazyTuple();
 
