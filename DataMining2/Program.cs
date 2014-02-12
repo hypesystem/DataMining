@@ -34,9 +34,9 @@ namespace DataMining2
             {
                 CrazyTuple tup = new CrazyTuple();
 
-                tup.Put("source", "old-data");
+                tup.Put("source", "data-2013");
                 tup.Put("age", LooseInt.Parse(r.Data[0]));
-                tup.Put("date", LooseDate.Parse(r.Data[1]));
+                tup.Put("DOB", LooseDate.Parse(r.Data[1]));
                 tup.Put("prog_skill", LooseInt.Parse(r.Data[2]));
                 tup.Put("yrs_of_uni_study", LooseDouble.Parse(r.Data[3]));
                 tup.Put("os", LooseNominal.Parse(r.Data[4]));
@@ -65,6 +65,44 @@ namespace DataMining2
 
                 content.Add(tup);
             }
+
+            Console.WriteLine("\n2013 data read.\n");
+            Console.ReadKey();
+
+            CsvTable tbl2014 = CsvTable.Parse(INPUT_PATH_2014);
+            foreach (var r in tbl2014.Rows)
+            {
+                CrazyTuple tup = new CrazyTuple();
+
+                tup.Put("source", "data-2014");
+                tup.Put("age", LooseInt.Parse(r.Data[0]));
+                tup.Put("prog_skill", LooseInt.Parse(r.Data[1]));
+                tup.Put("yrs_of_uni_study", LooseDouble.Parse(r.Data[2]));
+                tup.Put("os", LooseNominal.Parse(r.Data[3]));
+                tup.Put("prog_langs", LooseNominals.Parse(r.Data[4]));
+                tup.Put("english_level", LooseInt.Parse(r.Data[5]));
+                tup.Put("animal", LooseNominal.Parse(r.Data[6]));
+                tup.Put("more_mountains_in_dk", LooseBinary.Parse(r.Data[7]));
+                tup.Put("fed_up_with_winter", LooseBinary.Parse(r.Data[8]));
+                tup.Put("randomNumber", LooseDouble.Parse(r.Data[9], 1, 10));
+                tup.Put("randomRealNumber", LooseDouble.Parse(r.Data[10], 0, 1));
+                tup.Put("randomRealNumber2", LooseDouble.Parse(r.Data[11], 0, 1));
+                tup.Put("food_in_canteen_comment", r.Data[12]);
+                tup.Put("favourite_color", LooseNominal.Parse(r.Data[13]));
+                tup.Put("do_you_know_neural_network", LooseBinary.Parse(r.Data[14]));
+                tup.Put("do_you_know_vector_machine", LooseBinary.Parse(r.Data[15]));
+                tup.Put("do_you_know_sql", LooseBinary.Parse(r.Data[16], "sequential", "query", "language"));
+                tup.Put("favourite_sql_server", LooseNominal.Parse(r.Data[17]));
+                tup.Put("do_you_know_a_priori", LooseBinary.Parse(r.Data[18]));
+                tup.Put("sqrt_number", LooseNominal.Parse(r.Data[19]));
+                tup.Put("georgios_middlename", LooseNominal.Parse(r.Data[20]));
+                tup.Put("julian_hometown", LooseNominal.Parse(r.Data[21]));
+                tup.Put("gibberish_comment", r.Data[22]);
+                tup.Put("planets_in_solar_system", LooseInt.Parse(r.Data[23]));
+            }
+
+            Console.WriteLine("\n2014 data read.\n");
+            Console.ReadKey();
         }
     }
 }
