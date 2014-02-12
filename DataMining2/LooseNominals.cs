@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace DataMining2
@@ -13,12 +14,16 @@ namespace DataMining2
         {
             string[] result = { };
 
-            if (str.Contains(','))
+            Regex nonAlphanumericSpace = new Regex(@"[^a-zA-Z0-9 ]");
+
+            if (nonAlphanumericSpace.Match(str).Success)
             {
-                result = str.Split(',');
+                //Split by everything!
+                result = nonAlphanumericSpace.Split(str);
             }
             else
             {
+                //Split by spaces
                 result = str.Split(' ');
             }
             for (int i = 0; i < result.Length; i++)
